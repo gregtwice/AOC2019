@@ -6,6 +6,7 @@ import (
 	"log"
 	"os"
 	"strconv"
+	"time"
 )
 
 func main() {
@@ -17,6 +18,7 @@ func main() {
 	scanner := bufio.NewScanner(file)
 	s1 := 0
 	s2 := 0
+	t := time.Now()
 	for scanner.Scan() {
 		mass := scanner.Text()
 		m, _ := strconv.Atoi(mass)
@@ -30,6 +32,9 @@ func main() {
 			}
 		}
 	}
+	t2 := time.Now().Sub(t)
 	fmt.Println("Part 1: ", s1)
 	fmt.Println("Part 2: ", s2)
+	println(t2.Seconds())
+
 }
