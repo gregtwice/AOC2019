@@ -7,7 +7,7 @@ func isValidpart1(mdp int) bool {
 	if mdp > max || mdp < min {
 		return false
 	}
-	//Horible
+	//Horrible
 	arrMdp := []int{
 		(mdp / 100000) % 10,
 		(mdp / 10000) % 10,
