@@ -32,9 +32,9 @@ func main() {
 			}
 		}
 	}
-	t2 := time.Now().Sub(t)
+	t2 := time.Now()
 	fmt.Println("Part 1: ", s1)
 	fmt.Println("Part 2: ", s2)
-	println(t2.Seconds())
+	fmt.Println(t2.Sub(t).Nanoseconds())
 
 }

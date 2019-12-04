@@ -72,8 +72,6 @@ func main() {
 				y = Cy
 				if value[0] == 'U' || value[0] == 'D' {
 					if (Ay-y)*(By-y) < 0 && (Cx-x)*(Dx-x) < 0 {
-						//fmt.Println(x, y)
-						//fmt.Println("Point")
 						minD = min(minD, x, y)
 						bestStep = int(math.Min(float64(stepsw1+stepsw2+int(math.Abs(float64(Cx-x))+math.Abs(float64(Ay-y)))), float64(bestStep)))
 					}
@@ -85,10 +83,7 @@ func main() {
 				y = Ay
 				if value[0] == 'L' || value[0] == 'R' {
 					if (Cy-y)*(Dy-y) < 0 && (Ax-x)*(Bx-x) < 0 {
-						//fmt.Println(x, y)
-						//fmt.Println("Point")
 						minD = min(minD, x, y)
-						//bestStep = int(math.Min(float64(stepsw1+stepsw2), float64(bestStep)))
 						bestStep = int(math.Min(float64(stepsw1+stepsw2+int(math.Abs(float64(Ax-x))+math.Abs(float64(Cy-y)))), float64(bestStep)))
 
 					}
@@ -100,41 +95,22 @@ func main() {
 				y = Ay
 				if value[0] == 'L' || value[0] == 'R' {
 					if (Cy-y)*(Dy-y) < 0 && (Ax-x)*(Bx-x) < 0 {
-						//fmt.Println(x, y)
-						//fmt.Println("Point")
 						minD = min(minD, x, y)
 						bestStep = int(math.Min(float64(stepsw1+stepsw2+int(math.Abs(float64(Ax-x))+math.Abs(float64(Cy-y)))), float64(bestStep)))
-
 					}
 				}
 			case 'L': //left
-				//fmt.Println("Ok")
 				Dx = Cx - d
 				Dy = Cy
 				x = Ax
 				y = Cy
 				if value[0] == 'U' || value[0] == 'D' {
-					//fmt.Println(Ax, Ay, Bx, By)
-					//fmt.Println(Cx, Cy, Dx, Dy)
-					//fmt.Println(x, y)
 					if (Ay-y)*(By-y) < 0 && (Cx-x)*(Dx-x) < 0 {
-						//fmt.Println("Point")
 						minD = min(minD, x, y)
-						bestStep = int(
-							math.Min(
-								float64(
-									stepsw1+stepsw2+
-										int(math.Abs(float64(Cx-x))+
-											math.Abs(float64(Ay-y)))),
-								float64(bestStep)))
+						bestStep = int(math.Min(float64(stepsw1+stepsw2+int(math.Abs(float64(Cx-x))+math.Abs(float64(Ay-y)))), float64(bestStep)))
 					}
 				}
 			}
-
-			//Ix := Bx - Ax
-			//Iy := By - Ay
-			//Jx := Dx - Cx
-			//Jy := Dy - Cy
 			stepsw2 += d
 			Cx = Dx
 			Cy = Dy
@@ -148,7 +124,6 @@ func main() {
 	}
 	fmt.Println(minD)
 	fmt.Println(bestStep)
-
 }
 
 func min(minD int, x int, y int) int {
